@@ -30,6 +30,16 @@ namespace HealthApp
             namelable.Content = user.getName();
         }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void addfood_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         //public WorkSpace()
         //{
         //    InitializeComponent();

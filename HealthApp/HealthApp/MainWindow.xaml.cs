@@ -58,12 +58,15 @@ namespace HealthApp
 
             if (reader.HasRows)
             {
-                
-                
-                user = new User(loginbox.Text);
-                WorkSpace ws = new WorkSpace(user);
-                ws.Show();
-                this.Close();
+
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt16(reader["Id"]);
+                    user = new User(loginbox.Text, id);
+                    WorkSpace ws = new WorkSpace(user);
+                    ws.Show();
+                    this.Close();
+                }
             }
             else
             {
