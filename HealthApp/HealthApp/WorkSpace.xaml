@@ -12,7 +12,7 @@
             <TabItem Header="Моё Питание">
                 <Grid Background="#FFE5E5E5" Margin="0,0,9,0">
                     <ListBox x:Name="foodbox" HorizontalAlignment="Left" Height="472" Margin="10,10,0,0" VerticalAlignment="Top" Width="382"/>
-                    <Label Content="Всего калорий:" HorizontalAlignment="Left" Margin="452,10,0,0" VerticalAlignment="Top" FontSize="18"/>
+                    <Label Content="Всего калорий:" HorizontalAlignment="Left" Margin="504,10,0,0" VerticalAlignment="Top" FontSize="18"/>
                     <Button x:Name="addfood" Content="Добавить еду" HorizontalAlignment="Left" Margin="452,370,0,0" VerticalAlignment="Top" Width="338" Height="68" FontSize="18" Click="addfood_Click"/>
                     <TextBox x:Name="foodtitle" HorizontalAlignment="Left" Height="38" Margin="452,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" TextChanged="TextBox_TextChanged"/>
                     <TextBox x:Name="calories" HorizontalAlignment="Left" Height="38" Margin="703,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="118" FontSize="20"/>
@@ -21,7 +21,8 @@
                     <RadioButton x:Name="dinner" Content="Ужин" HorizontalAlignment="Left" Margin="453,324,0,0" VerticalAlignment="Top" FontSize="20"/>
                     <TextBlock HorizontalAlignment="Left" Margin="453,167,0,0" TextWrapping="Wrap" Text="Название еды" VerticalAlignment="Top" FontSize="16"/>
                     <TextBlock HorizontalAlignment="Left" Margin="703,167,0,0" TextWrapping="Wrap" Text="Кол-во калорий" VerticalAlignment="Top" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="460,49,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="49" Width="202" FontSize="20"/>
+                    <TextBlock x:Name="totalcal" HorizontalAlignment="Left" Margin="504,49,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="49" Width="202" FontSize="20"/>
+                    <Button x:Name="updatefood" Content="Обновить" HorizontalAlignment="Left" Margin="398,14,0,0" VerticalAlignment="Top" Width="67" Height="50" Click="updatefood_Click"/>
                 </Grid>
             </TabItem>
         </TabControl>
