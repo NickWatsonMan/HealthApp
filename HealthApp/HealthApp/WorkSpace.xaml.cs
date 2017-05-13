@@ -22,6 +22,7 @@ namespace HealthApp
     public partial class WorkSpace : Window
     {
         SqlConnection conn;
+        SqlConnection conn1;
         User user;
 
         public WorkSpace(User user)
@@ -31,11 +32,14 @@ namespace HealthApp
             MessageBox.Show(user.getName());
             namelable.Content = user.getName();
             getCal();
+            getSport();
 
         }
 
         private async void getCal()
         {
+
+            foodbox.Items.Clear();
             string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\nick\Source\Repos\HealthApp\HealthApp\HealthApp\Database1.mdf;Integrated Security=True";
             conn = new SqlConnection(connectionString);
 
@@ -104,45 +108,104 @@ namespace HealthApp
             breakfast.IsChecked = false;
             lunch.IsChecked = false;
             dinner.IsChecked = false;
+           
+            getCal();
             
             }
             catch {
                 MessageBox.Show("Некорректные данные ввода");
             }
+           
         
         }
 
-        private async void updatefood_Click(object sender, RoutedEventArgs e)
+        private void updatefood_Click(object sender, RoutedEventArgs e)
         {
-            foodbox.Items.Clear();
+            getCal();
+        }
+
+        private async void clearfood_Click(object sender, RoutedEventArgs e)
+        {
             string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\nick\Source\Repos\HealthApp\HealthApp\HealthApp\Database1.mdf;Integrated Security=True";
             conn = new SqlConnection(connectionString);
 
             await conn.OpenAsync();
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM [Food] WHERE user_id = @id ORDER BY Eating_time ASC", conn);
+            SqlCommand cmd = new SqlCommand("DELETE FROM [Food] WHERE user_id = @id", conn);
 
             cmd.Parameters.Add("@id", SqlDbType.Int).Value = user.getId();
 
             await cmd.ExecuteNonQueryAsync();
-            SqlDataReader reader = await cmd.ExecuteReaderAsync();
-            int cal = 0;
+
+            conn.Close();
+            getCal();
+        }
+
+        //Sports part
+        private async void addsport_Click(object sender, RoutedEventArgs e)
+        {
+            string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\nick\Source\Repos\HealthApp\HealthApp\HealthApp\Database1.mdf;Integrated Security=True";
+            conn = new SqlConnection(connectionString);
+
+            await conn.OpenAsync();
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO [Sport](Sport_title, Repetitions, user_id, sets)VALUES(@title, @reps, @id, @sets)", conn);
+            try
+            {
+                cmd.Parameters.Add("@title", SqlDbType.NVarChar, 50).Value = sportTitle.Text;
+                cmd.Parameters.Add("@reps", SqlDbType.Int).Value = Convert.ToInt32(repetitions.Text);
+                cmd.Parameters.Add("@sets", SqlDbType.Int).Value = Convert.ToInt32(sets.Text);
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = user.getId();
+
+                await cmd.ExecuteNonQueryAsync();
+
+                conn.Close();
+
+                sportTitle.Clear();
+                repetitions.Clear();
+                sets.Clear();
+                getSport();
+
+            }
+            catch
+            {
+                MessageBox.Show("Некорректные данные ввода");
+            }
+        }
+
+        private async void getSport()
+        {
+
+            sportbox.Items.Clear();
+            string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\nick\Source\Repos\HealthApp\HealthApp\HealthApp\Database1.mdf;Integrated Security=True";
+            conn1 = new SqlConnection(connectionString);
+
+            await conn1.OpenAsync();
+
+            SqlCommand cmd1 = new SqlCommand("SELECT * FROM [Sport] WHERE user_id = @id", conn1);
+
+            cmd1.Parameters.Add("@id", SqlDbType.Int).Value = user.getId();
+
+            await cmd1.ExecuteNonQueryAsync();
+            SqlDataReader reader = await cmd1.ExecuteReaderAsync();
+            int totalex = 0;
 
             if (reader.HasRows)
             {
 
                 while (reader.Read())
                 {
-                    foodbox.Items.Add(Convert.ToString(reader["Food_title"]) + " " + Convert.ToString(reader["Calories"]) + " " + Convert.ToString(reader["Eating_time"]));
-                    cal = Convert.ToInt16(reader["Calories"]) + cal;
+                    sportbox.Items.Add(Convert.ToString(reader["Sport_title"]) + " " + Convert.ToString(reader["Repetitions"]) + " " + Convert.ToString(reader["Sets"]));
+                   // totalex = Convert.ToInt16(reader["Calories"]) + totalex;
                 }
             }
             else
             {
-                
-            }
 
-            totalcal.Text = Convert.ToString(cal);
+            }
+            conn1.Close();
+
+        //    totalcal.Text = Convert.ToString(totalex);
         }
 
         //public WorkSpace()
