@@ -195,8 +195,8 @@ namespace HealthApp
 
                 while (reader.Read())
                 {
-                    sportbox.Items.Add(Convert.ToString(reader["Sport_title"]) + " " + Convert.ToString(reader["Repetitions"]) + " " + Convert.ToString(reader["Sets"]));
-                   // totalex = Convert.ToInt16(reader["Calories"]) + totalex;
+                    sportbox.Items.Add(Convert.ToString(reader["Sport_title"]) + " повторений: " + Convert.ToString(reader["Repetitions"]) + " подходов: " + Convert.ToString(reader["Sets"]) );
+                    totalex = totalex + 1;
                 }
             }
             else
@@ -205,7 +205,29 @@ namespace HealthApp
             }
             conn1.Close();
 
-        //    totalcal.Text = Convert.ToString(totalex);
+            totalsport.Text = Convert.ToString(totalex);
+        }
+
+        private async void clearsport_Click(object sender, RoutedEventArgs e)
+        {
+            string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\nick\Source\Repos\HealthApp\HealthApp\HealthApp\Database1.mdf;Integrated Security=True";
+            conn = new SqlConnection(connectionString);
+
+            await conn.OpenAsync();
+
+            SqlCommand cmd = new SqlCommand("DELETE FROM [Sport] WHERE user_id = @id", conn);
+
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = user.getId();
+
+            await cmd.ExecuteNonQueryAsync();
+
+            conn.Close();
+            getSport();
+        }
+
+        private void updatesport_Click(object sender, RoutedEventArgs e)
+        {
+            getSport();
         }
 
         //public WorkSpace()

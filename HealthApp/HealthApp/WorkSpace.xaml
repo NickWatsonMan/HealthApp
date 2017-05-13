@@ -7,21 +7,23 @@
             <TabItem Header="Мои тренировки">
                 <Grid Background="#FFE5E5E5" Margin="0,0,7,0">
                     <ListBox x:Name="sportbox" HorizontalAlignment="Left" Height="472" Margin="10,10,0,0" VerticalAlignment="Top" Width="384"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="452,10,0,0" TextWrapping="Wrap" Text="Всего упражнений" VerticalAlignment="Top" Height="35" Width="160" FontSize="18"/>
-                    <TextBlock x:Name="totalsport" HorizontalAlignment="Left" Margin="452,45,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="18"/>
-                    <Button x:Name="addsport" Content="Добавить упражнение" HorizontalAlignment="Left" Margin="514,386,0,0" VerticalAlignment="Top" Width="206" Height="62" FontSize="18" Click="addsport_Click"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="437,88,0,0" TextWrapping="Wrap" Text="Всего упражнений сегодня:" VerticalAlignment="Top" Height="35" Width="232" FontSize="18"/>
+                    <TextBlock x:Name="totalsport" HorizontalAlignment="Left" Margin="682,86,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20" Height="49"/>
+                    <Button x:Name="addsport" Content="Добавить упражнение" HorizontalAlignment="Left" Margin="437,386,0,0" VerticalAlignment="Top" Width="329" Height="62" FontSize="18" Click="addsport_Click"/>
                     <TextBlock HorizontalAlignment="Left" Margin="412,172,0,0" TextWrapping="Wrap" Text="Название упражнения" VerticalAlignment="Top" FontSize="18"/>
                     <TextBlock HorizontalAlignment="Left" Margin="412,264,0,0" TextWrapping="Wrap" Text="Кол-во повторений" VerticalAlignment="Top" Width="178" FontSize="18"/>
                     <TextBox x:Name="sportTitle" HorizontalAlignment="Left" Height="42" Margin="412,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="398"/>
                     <TextBox x:Name="repetitions" HorizontalAlignment="Left" Height="42" Margin="412,293,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
                     <TextBox x:Name="sets" HorizontalAlignment="Left" Height="40" Margin="624,293,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186"/>
                     <TextBlock HorizontalAlignment="Left" Margin="624,264,0,0" TextWrapping="Wrap" Text="Кол-во подходов" VerticalAlignment="Top" FontSize="18"/>
+                    <Button x:Name="clearsport" Content="Очистить" HorizontalAlignment="Left" Margin="399,10,0,0" VerticalAlignment="Top" Width="84" FontSize="16" Height="53" Click="clearsport_Click"/>
+                    <Button x:Name="updatesport" Content="Обновить" HorizontalAlignment="Left" Margin="741,10,0,0" VerticalAlignment="Top" Width="82" Height="53" FontSize="16" Click="updatesport_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Моё Питание">
                 <Grid Background="#FFE5E5E5" Margin="0,0,9,0">
                     <ListBox x:Name="foodbox" HorizontalAlignment="Left" Height="472" Margin="10,10,0,0" VerticalAlignment="Top" Width="382"/>
-                    <Label Content="Всего калорий:" HorizontalAlignment="Left" Margin="504,10,0,0" VerticalAlignment="Top" FontSize="18"/>
+                    <Label Content="Всего калорий:" HorizontalAlignment="Left" Margin="452,86,0,0" VerticalAlignment="Top" FontSize="18"/>
                     <Button x:Name="addfood" Content="Добавить еду" HorizontalAlignment="Left" Margin="452,370,0,0" VerticalAlignment="Top" Width="338" Height="68" FontSize="18" Click="addfood_Click"/>
                     <TextBox x:Name="foodtitle" HorizontalAlignment="Left" Height="38" Margin="452,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" TextChanged="TextBox_TextChanged"/>
                     <TextBox x:Name="calories" HorizontalAlignment="Left" Height="38" Margin="703,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="118" FontSize="20"/>
@@ -30,9 +32,9 @@
                     <RadioButton x:Name="dinner" Content="Ужин" HorizontalAlignment="Left" Margin="453,324,0,0" VerticalAlignment="Top" FontSize="20"/>
                     <TextBlock HorizontalAlignment="Left" Margin="453,167,0,0" TextWrapping="Wrap" Text="Название еды" VerticalAlignment="Top" FontSize="16"/>
                     <TextBlock HorizontalAlignment="Left" Margin="703,167,0,0" TextWrapping="Wrap" Text="Кол-во калорий" VerticalAlignment="Top" FontSize="16"/>
-                    <TextBlock x:Name="totalcal" HorizontalAlignment="Left" Margin="504,49,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="49" Width="202" FontSize="20"/>
-                    <Button x:Name="updatefood" Content="Обновить" HorizontalAlignment="Left" Margin="398,14,0,0" VerticalAlignment="Top" Width="67" Height="50" Click="updatefood_Click"/>
-                    <Button x:Name="clearfood" Content="Очистить" HorizontalAlignment="Left" Margin="398,83,0,0" VerticalAlignment="Top" Width="67" Height="30" Click="clearfood_Click"/>
+                    <TextBlock x:Name="totalcal" HorizontalAlignment="Left" Margin="599,86,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="49" Width="202" FontSize="20"/>
+                    <Button x:Name="updatefood" Content="Обновить" HorizontalAlignment="Left" Margin="733,10,0,0" VerticalAlignment="Top" Width="88" Height="50" Click="updatefood_Click" FontSize="16"/>
+                    <Button x:Name="clearfood" Content="Очистить" HorizontalAlignment="Left" Margin="397,10,0,0" VerticalAlignment="Top" Width="85" Height="50" Click="clearfood_Click" FontSize="16"/>
                 </Grid>
             </TabItem>
         </TabControl>
