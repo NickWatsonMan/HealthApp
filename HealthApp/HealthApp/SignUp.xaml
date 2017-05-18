@@ -1,15 +1,15 @@
 ﻿<Window x:Class="HealthApp.SignUp"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="SignUp" Height="300" Width="300">
-    <Grid>
-        <TextBox x:Name="namebox" HorizontalAlignment="Left" Height="22" Margin="88,74,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="106,53,0,0" TextWrapping="Wrap" Text="Введите логин" VerticalAlignment="Top"/>
-        <PasswordBox x:Name="pwdbox1" HorizontalAlignment="Left" Margin="88,139,0,0" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox x:Name="pwdbox2" HorizontalAlignment="Left" Margin="88,184,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="106,124,0,0" TextWrapping="Wrap" Text="Задайте пароль" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="106,171,0,0" TextWrapping="Wrap" Text="Повторите пароль" VerticalAlignment="Top"/>
-        <Button x:Name="dosignup" Content="Зергистрироваться" HorizontalAlignment="Left" Margin="88,207,0,0" VerticalAlignment="Top" Width="120" Click="dosignup_Click"/>
+        Title="SignUp" Height="300" Width="300" ResizeMode="NoResize" Icon="assets/icon.png">
+    <Grid Margin="0,0,-6,0">
+        <TextBox x:Name="namebox" HorizontalAlignment="Left" Height="22" Margin="88,42,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="132"/>
+        <TextBlock HorizontalAlignment="Left" Margin="79,18,0,0" TextWrapping="Wrap" Text="Придумайте логин" VerticalAlignment="Top" FontSize="18" Width="163"/>
+        <PasswordBox x:Name="pwdbox1" HorizontalAlignment="Left" Margin="88,101,0,0" VerticalAlignment="Top" Width="132" Height="26"/>
+        <PasswordBox x:Name="pwdbox2" HorizontalAlignment="Left" Margin="88,164,0,0" VerticalAlignment="Top" Width="132" Height="26"/>
+        <TextBlock HorizontalAlignment="Left" Margin="88,77,0,0" TextWrapping="Wrap" Text="Задайте пароль" VerticalAlignment="Top" FontSize="18" Width="153"/>
+        <TextBlock HorizontalAlignment="Left" Margin="79,140,0,0" TextWrapping="Wrap" Text="Повторите пароль" VerticalAlignment="Top" FontSize="18"/>
+        <Button x:Name="dosignup" Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="88,207,0,0" VerticalAlignment="Top" Width="132" Click="dosignup_Click" Height="36"/>
 
     </Grid>
 </Window>

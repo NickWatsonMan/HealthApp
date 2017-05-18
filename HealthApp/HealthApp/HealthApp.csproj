@@ -151,6 +151,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="assets\main.jpg" />
+    <Resource Include="assets\icon.png" />
     <Content Include="Database1.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

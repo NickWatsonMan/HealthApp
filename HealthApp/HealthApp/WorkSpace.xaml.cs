@@ -29,7 +29,6 @@ namespace HealthApp
         {
             InitializeComponent();
             this.user = user;
-            MessageBox.Show(user.getName());
             namelable.Content = user.getName();
             getCal();
             getSport();
