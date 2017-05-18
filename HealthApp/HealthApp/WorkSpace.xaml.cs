@@ -39,7 +39,7 @@ namespace HealthApp
         {
 
             foodbox.Items.Clear();
-            string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\nick\Source\Repos\HealthApp\HealthApp\HealthApp\Database1.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
             conn = new SqlConnection(connectionString);
 
             await conn.OpenAsync();
@@ -75,7 +75,7 @@ namespace HealthApp
 
         private async void addfood_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\nick\Source\Repos\HealthApp\HealthApp\HealthApp\Database1.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
             conn = new SqlConnection(connectionString);
 
             await conn.OpenAsync();
@@ -125,7 +125,7 @@ namespace HealthApp
 
         private async void clearfood_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\nick\Source\Repos\HealthApp\HealthApp\HealthApp\Database1.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
             conn = new SqlConnection(connectionString);
 
             await conn.OpenAsync();
@@ -143,7 +143,7 @@ namespace HealthApp
         //Sports part
         private async void addsport_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\nick\Source\Repos\HealthApp\HealthApp\HealthApp\Database1.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
             conn = new SqlConnection(connectionString);
 
             await conn.OpenAsync();
@@ -176,7 +176,7 @@ namespace HealthApp
         {
 
             sportbox.Items.Clear();
-            string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\nick\Source\Repos\HealthApp\HealthApp\HealthApp\Database1.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
             conn1 = new SqlConnection(connectionString);
 
             await conn1.OpenAsync();
@@ -209,7 +209,7 @@ namespace HealthApp
 
         private async void clearsport_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\nick\Source\Repos\HealthApp\HealthApp\HealthApp\Database1.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
             conn = new SqlConnection(connectionString);
 
             await conn.OpenAsync();

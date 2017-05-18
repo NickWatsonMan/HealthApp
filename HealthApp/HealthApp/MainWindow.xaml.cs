@@ -44,7 +44,7 @@ namespace HealthApp
 
         private async void enter_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\nick\Source\Repos\HealthApp\HealthApp\HealthApp\Database1.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
             conn = new SqlConnection(connectionString);
 
             await conn.OpenAsync();
