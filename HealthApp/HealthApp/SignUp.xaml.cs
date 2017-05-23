@@ -29,7 +29,7 @@ namespace HealthApp
 
         private async void dosignup_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\nick\HealthApp\HealthApp\HealthApp\Database1.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
             conn = new SqlConnection(connectionString);
      
             await conn.OpenAsync();
@@ -41,7 +41,6 @@ namespace HealthApp
                 {
 
                     cmd.Parameters.Add("@login", SqlDbType.NVarChar).Value = namebox.Text;
-               //     cmd.Parameters.AddWithValue("login", namebox.Text);
 
                     if ((pwdbox1.Password.ToString() == pwdbox2.Password.ToString()) && (pwdbox1.Password.ToString().Length != 0))
                     {
