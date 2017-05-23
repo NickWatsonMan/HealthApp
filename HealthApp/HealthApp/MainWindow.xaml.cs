@@ -44,34 +44,39 @@ namespace HealthApp
 
         private async void enter_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\nick\HealthApp\HealthApp\HealthApp\Database1.mdf;Integrated Security=True";
             conn = new SqlConnection(connectionString);
 
             await conn.OpenAsync();
 
-            SqlCommand cmd = new SqlCommand("SELECT id FROM [User] WHERE login = @login AND password = @password", conn);
-
-            cmd.Parameters.Add("@login", SqlDbType.VarChar, 50).Value = loginbox.Text;
-            cmd.Parameters.Add("@password", SqlDbType.VarChar, 50).Value = passwordbox.Password.ToString();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM [User]", conn);
+         
+          
+         //   cmd.Parameters.AddWithValue("login", loginbox.Text);
+         //   cmd.Parameters.AddWithValue("password", passwordbox.Password.ToString());
+          
             await cmd.ExecuteNonQueryAsync();
             SqlDataReader reader = await cmd.ExecuteReaderAsync();
 
-            if (reader.HasRows)
-            {
 
+            
                 while (reader.Read())
                 {
-                    int id = Convert.ToInt16(reader["Id"]);
-                    user = new User(loginbox.Text, id);
-                    WorkSpace ws = new WorkSpace(user);
-                    ws.Show();
-                    this.Close();
+                    Console.Write(Convert.ToString(reader.GetSqlString(2)).TrimEnd() + " = " + Convert.ToString(passwordbox.Password.ToString()) + "; ");
+
+                    if ((Convert.ToString(loginbox.Text.TrimEnd()) == Convert.ToString(reader.GetSqlString(1)).TrimEnd()) && ((Convert.ToString(passwordbox.Password.ToString()) == Convert.ToString(reader.GetSqlString(2)).TrimEnd())))
+                    {
+                        int id = Convert.ToInt32(reader["Id"]);
+                        user = new User(loginbox.Text, id);
+                        WorkSpace ws = new WorkSpace(user);
+                        ws.Show();
+                      
+                        this.Close();
+                    }
+
                 }
-            }
-            else
-            {
-                MessageBox.Show("Вы ввели не верные данные!");
-            }
+
+                reader.Close();
          
 
             conn.Close();

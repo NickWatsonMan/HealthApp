@@ -29,7 +29,7 @@ namespace HealthApp
 
         private async void dosignup_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\nick\HealthApp\HealthApp\HealthApp\Database1.mdf;Integrated Security=True";
             conn = new SqlConnection(connectionString);
      
             await conn.OpenAsync();
@@ -40,15 +40,18 @@ namespace HealthApp
                 if (namebox.Text.Length != 0)
                 {
 
-                    cmd.Parameters.Add("@login", SqlDbType.VarChar, 50).Value = namebox.Text;
+                    cmd.Parameters.Add("@login", SqlDbType.NVarChar).Value = namebox.Text;
+               //     cmd.Parameters.AddWithValue("login", namebox.Text);
 
                     if ((pwdbox1.Password.ToString() == pwdbox2.Password.ToString()) && (pwdbox1.Password.ToString().Length != 0))
                     {
-                        cmd.Parameters.Add("@password", SqlDbType.VarChar, 50).Value = pwdbox1.Password.ToString();
+
+                    
+                        cmd.Parameters.AddWithValue("password", pwdbox1.Password.ToString());
 
                         await cmd.ExecuteNonQueryAsync();
-
-                        conn.Close();
+        
+                        
                         this.Close();
                     }
                     else
@@ -66,7 +69,7 @@ namespace HealthApp
                 MessageBox.Show("Такой логин уже занят. Укажите другой!");
             }
 
-
+            conn.Close();
             }
             
 
