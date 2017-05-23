@@ -29,7 +29,7 @@ namespace HealthApp
 
         private async void dosignup_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True";
             conn = new SqlConnection(connectionString);
      
             await conn.OpenAsync();
